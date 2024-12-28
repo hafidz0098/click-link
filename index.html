@@ -17,93 +17,18 @@
             Klik Disini
         </a>
     </div>
-
     <div class="w-full max-w-2xl bg-white rounded-lg shadow-md p-6">
         <h2 class="text-xl font-bold text-gray-800 mb-4">FAQ</h2>
         <div class="space-y-4">
-            <div class="border border-gray-200 rounded-lg">
-                <button class="w-full text-left px-4 py-2 bg-gray-100 rounded-t-lg focus:outline-none" onclick="toggleAccordion(this)">
-                    <h3 class="text-lg font-semibold text-gray-700">Apa itu tim baru di Canva?</h3>
-                </button>
-                <div class="px-4 py-2 hidden">
-                    <p class="text-gray-600">Tim baru di Canva adalah grup kolaborasi di platform Canva di mana Anda dapat berbagi desain dan bekerja sama dengan anggota tim lainnya.</p>
-                </div>
+            <div class="p-4 border border-gray-200 rounded-lg">
+                <h3 class="text-lg font-semibold text-gray-700">Bagaimana cara bergabung dengan tim?</h3>
+                <p class="text-gray-600 mt-2">Klik tombol di atas, dan Anda akan diarahkan ke halaman Canva untuk bergabung ke tim dengan token undangan yang telah disediakan.</p>
             </div>
-            <div class="border border-gray-200 rounded-lg">
-                <button class="w-full text-left px-4 py-2 bg-gray-100 rounded-t-lg focus:outline-none" onclick="toggleAccordion(this)">
-                    <h3 class="text-lg font-semibold text-gray-700">Bagaimana cara bergabung dengan tim?</h3>
-                </button>
-                <div class="px-4 py-2 hidden">
-                    <p class="text-gray-600">Klik tombol di atas, dan Anda akan diarahkan ke halaman Canva untuk bergabung ke tim dengan token undangan yang telah disediakan.</p>
-                </div>
-            </div>
-            <div class="border border-gray-200 rounded-lg">
-                <button class="w-full text-left px-4 py-2 bg-gray-100 rounded-t-lg focus:outline-none" onclick="toggleAccordion(this)">
-                    <h3 class="text-lg font-semibold text-gray-700">Apakah bergabung ke tim ini gratis?</h3>
-                </button>
-                <div class="px-4 py-2 hidden">
-                    <p class="text-gray-600">Ya, bergabung ke tim ini tidak memerlukan biaya apa pun selama Anda memiliki akun Canva.</p>
-                </div>
+            <div class="p-4 border border-gray-200 rounded-lg">
+                <h3 class="text-lg font-semibold text-gray-700">Bagaimana cara salin desain ke tim baru?</h3>
+                <a href="https://www.canva.com/id_id/help/transfer-designs-to-personal-account/" target="_blank" class="text-blue-500 hover:underline">Klik disini untuk detail</a>
             </div>
         </div>
     </div>
-
-    <div class="fixed bottom-4 right-4">
-        <div id="chat-box" class="hidden bg-white border border-gray-300 rounded-lg shadow-lg w-80 h-96 flex flex-col">
-            <div class="bg-gray-100 px-4 py-2 flex justify-between items-center border-b border-gray-300">
-                <h3 class="text-gray-800 font-bold">AI Chat</h3>
-                <button onclick="toggleChat()" class="text-gray-500 hover:text-gray-800">✖</button>
-            </div>
-            <div id="chat-content" class="flex-1 p-4 overflow-y-auto text-gray-700"></div>
-            <div class="border-t border-gray-300 p-2">
-                <input id="chat-input" type="text" placeholder="Ketik pesan..." class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none">
-                <button onclick="sendMessage()" class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-blue-600">Kirim</button>
-            </div>
-        </div>
-        <button id="chat-toggle" onclick="toggleChat()" class="bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-600">💬 Chat</button>
-    </div>
-
-    <script>
-        function toggleAccordion(button) {
-            const content = button.nextElementSibling;
-            const isHidden = content.classList.contains('hidden');
-            document.querySelectorAll('.px-4.py-2').forEach(el => el.classList.add('hidden'));
-            if (isHidden) {
-                content.classList.remove('hidden');
-            }
-        }
-
-        function toggleChat() {
-            const chatBox = document.getElementById('chat-box');
-            const chatToggle = document.getElementById('chat-toggle');
-            if (chatBox.classList.contains('hidden')) {
-                chatBox.classList.remove('hidden');
-                chatToggle.classList.add('hidden');
-            } else {
-                chatBox.classList.add('hidden');
-                chatToggle.classList.remove('hidden');
-            }
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chat-input');
-            const content = document.getElementById('chat-content');
-            const message = input.value.trim();
-            if (message) {
-                const userMessage = document.createElement('div');
-                userMessage.className = 'text-right mb-2';
-                userMessage.innerHTML = `<span class='bg-blue-500 text-white px-3 py-1 rounded-lg inline-block'>${message}</span>`;
-                content.appendChild(userMessage);
-
-                const aiResponse = document.createElement('div');
-                aiResponse.className = 'text-left mb-2';
-                aiResponse.innerHTML = `<span class='bg-gray-200 text-gray-700 px-3 py-1 rounded-lg inline-block'>Fitur chat belum tersedia</span>`;
-                content.appendChild(aiResponse);
-
-                input.value = '';
-                content.scrollTop = content.scrollHeight;
-            }
-        }
-    </script>
 </body>
 </html>
