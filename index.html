@@ -58,8 +58,10 @@
       <h2 class="text-4xl font-bold mb-4">platform desain grafis online yang dapat digunakan untuk membuat berbagai macam materi desain.</h2>
       <p class="text-lg mb-8">Canva dapat digunakan oleh desainer dan non-desainer untuk membuat proyek cetak dan digital.</p>
       
-      <a href="https://www.canva.com/brand/join?token=CLsjHO8iwTPiVYuajCxXQQ&referrer=team-invite" class="bg-yellow-400 text-blue-800 px-8 py-3 rounded shadow-md hover:bg-yellow-500">Klik disini</a>
-      <a href="https://www.profitablecpmrate.com/ai8dffjfru?key=c6863d7c000cc92803cf65c391e58c3b" class="bg-yellow-400 text-blue-800 px-8 py-3 rounded shadow-md hover:bg-yellow-500">untuk join tim canva</a>
+     <!-- Link dengan redirect dinamis -->
+     <a id="dynamic-link" href="#" class="bg-yellow-400 text-blue-800 px-8 py-3 rounded shadow-md hover:bg-yellow-500">
+      Klik disini untuk join tim
+    </a>
     </div>
   </section>
 
@@ -190,6 +192,29 @@
       mobileMenu.classList.toggle('hidden');
     });
   </script>
+
+<script>
+  // URL Halaman Iklan dan Asli
+  const adsURL = "https://www.profitablecpmrate.com/ai8dffjfru?key=c6863d7c000cc92803cf65c391e58c3b";
+  const originalURL = "https://www.canva.com/brand/join?token=CLsjHO8iwTPiVYuajCxXQQ&referrer=team-invite";
+
+  // Elemen link
+  const link = document.getElementById('dynamic-link');
+
+  // Periksa apakah pengguna pernah mengklik sebelumnya
+  const hasVisited = localStorage.getItem('hasVisited');
+
+  // Tentukan URL berdasarkan status kunjungan
+  if (hasVisited) {
+    link.setAttribute('href', originalURL);
+  } else {
+    link.setAttribute('href', adsURL);
+    // Tandai pengguna sebagai telah mengklik
+    link.addEventListener('click', () => {
+      localStorage.setItem('hasVisited', 'true');
+    });
+  }
+</script>
 
 </body>
 </html>
